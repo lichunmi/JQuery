@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>제이쿼리 플러그인 연결</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<style>
+    ul, li {list-style: none;}
+    .wrap {display: flex;margin: 30px;gap: 20px;}
+</style>
+<script>
+    $(document).ready(function(){
+        //JQuery - filter
+            $('h1').filter('.second').css('color','red');
+            $('h1').filter(function(index){
+                //3의 배수
+                return index % 3 ==0;
+            }).css('textDecoration','underline');
+
+        //JQuery - not
+            $('h2').not('.second').css('color','blue');
+            $('h2').not(function(index){
+                //3의 배수
+                return index % 3 ==0;
+            }).css('paddingLeft','30px');
+
+        //JQuery - add
+        // $('div, span').css('color','pink');
+            $('div').add('span').css('color','pink');
+    });
+</script>
+</head>
+<body>
+    <h1>객체 선택</h1>
+    <h1 class="second">객체 선택</h1>
+    <h1>객체 선택</h1>
+    <h1>객체 선택</h1>
+    <h1>객체 선택</h1>
+    <h1>객체 선택</h1>
+    <h1>객체 선택</h1>
+<hr>
+    <h2>제목 태그</h2>
+    <h2 class="second">제목 태그</h2>
+    <h2>제목 태그</h2>
+    <h2>제목 태그</h2>
+    <h2>제목 태그</h2>
+    <h2>제목 태그</h2>
+    <div>add</div>
+    <span>add</span>
+</body>
+</html>

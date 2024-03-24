@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>제이쿼리 플러그인 연결</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<style>
+    ul, li {list-style: none;}
+    .wrap {display: flex;margin: 30px;gap: 20px;}
+</style>
+<script>
+    //Javascript
+                //** 날짜구하기, 창 크기
+                let today = new Date();
+                console.log(today);
+
+                let w1 = window.innerWidth;
+                console.log(w1);
+    
+    //JQuery - BOM객체선택
+        $(document).ready(function(){
+                //** 새창 띄우기, 창 크기, style
+                //새창 띄우기
+                //window.open('');
+
+                let w2 = $(window).width();
+                console.log(w2);
+
+                $('h1').css('color','red');
+                $('input[type="text"]').css('border', '3px solid red');
+                
+                //eq: n번쩨 선택자
+                $('li:eq(0)').css('fontWeight', 'bold');
+                $('li:first').css('textDecoration', 'underline');
+                $('li:odd').css('color', 'red');
+                $('li:even').css('color', 'gray');
+
+                //gt는 n번보다 큰 배열 선택
+                $('li:gt(3)').css('border','3px solid green');
+
+                //lt는 n번보다 작은 배열 선택
+                $('li:lt(2)').css('border','3px solid gray');
+        });
+</script>
+</head>
+<body>
+    <h1>객체 선택</h1>
+    <input type="text">
+    <input type="password">
+    <ul class="wrap">
+        <li>태그 1</li>
+        <li>태그 2</li>
+        <li>태그 3</li>
+        <li>태그 4</li>
+        <li>태그 5</li>
+        <li>태그 6</li>
+        <li>태그 7</li>
+    </ul>
+</body>
+</html>

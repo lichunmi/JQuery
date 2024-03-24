@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>제이쿼리 플러그인 연결</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+    // javascript
+        window.onload = function(){
+            //실행 코드
+        }
+        window.addEventListener('load', function(){
+            //실행 코드
+        })
+        addEventListener("DOMContentLoaded", (event) => {
+            //실행 코드
+        });
+        onDOMContentLoaded = (event) => {
+            //실행 코드
+        };
+    // JQuery
+        $(document).ready(function(){
+            //실행 코드
+        })
+        $(function(){
+            //실행 코드
+        })
+        $(window).load(function(){
+            //실행 코드
+        })
+        $(window).on('load', function(){
+            //JQuery 3x, = on 이벤트 메서드 작성시 오류 없음
+            //실행 코드
+        })
+</script>
+</head>
+<body>
+    <h1>제목 :Javascript</h1>
+    <h2>제목 : JQuery</h2>
+    <!-- javascript -->
+    <script>
+        let title = document.querySelector('h1');
+        title.style.color = 'red';
+    </script>
+    <!-- JQUERY -->
+    <script>
+        let title2 = $('h2');
+        title2.css('text-decoration', 'underline');
+    </script>
+</body>
+</html>

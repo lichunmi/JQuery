@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>제이쿼리 플러그인 연결</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<style>
+    ul, li {list-style: none;}
+    .wrap {display: flex;margin: 30px;gap: 20px;}
+</style>
+<script>
+    //JQuery - BOM객체선택
+        $(document).ready(function(){
+                //세터
+                $('li').html(function(index, text){
+                    return 'TAG ' + (index + 1);
+                    // return text + (index + 1);
+                });
+                 
+                //세터
+                let colors = ['red', 'blue', 'green'];
+                $('div').css('color', function(index){
+                    return colors[index];
+                })
+
+                //세터 메서드
+                $('h1').css({
+                    backgroundColor: 'black',
+                    color: function(index){
+                        return colors[index];
+                    }
+                });
+
+                // $('h2:first').css('color','red');
+                $('h2').first().css('color','red');
+                $('h2').eq(1).css('color','blue');
+
+                //랜덤번호 받기
+                //새로고침 할때마다 h2에 pink color 랜덤 적용
+                let numRandom = Math.random();
+                let num = Math.floor(Math.random() * 7);
+                $('h2').eq(num).css('color','pink');
+        });
+</script>
+</head>
+<body>
+    <h1>객체 선택</h1>
+    <h1>객체 선택</h1>
+    <h1>객체 선택</h1>
+<hr>
+    <h2>제목 태그</h2>
+    <h2>제목 태그</h2>
+    <h2>제목 태그</h2>
+    <h2>제목 태그</h2>
+    <h2>제목 태그</h2>
+    <h2>제목 태그</h2>
+</body>
+</html>

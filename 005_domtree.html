@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>제이쿼리 플러그인 연결</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<style>
+    ul, li {list-style: none;}
+    .wrap {display: flex;margin: 30px;gap: 20px;}
+</style>
+<script>
+    //JQuery
+    $(document).ready(function(){
+            //$('h1').parent();
+            //$('h1').parents();
+            //$('h1').parents('선택자');
+            //$('h1').parentsUntil('선택자');
+            $('li').parents().css({
+                // html, body parents애 포함
+                padding: 20,
+                border: '3px solid black',
+            });
+            $('li').parent().css('borderColor','red');
+            $('li').parents('section').css('borderColor','blue');
+            $('li').parentsUntil('body').css('borderStyle','dashed');
+            // siblings(); | 형제
+            // next(); | 다음 요소(동생)
+            // nextAll(); | 모든 다음요소
+            // nextUntil('div'); | 다음 요소들 중 div까지 
+            // prev(); | 이전 요소 (형)
+            // prevAll(); | 이전 요소들 (형)
+            // prevUntil('div'); | 이전 요소들 중 div까지 
+            $('.wrap').children().css('color','red');
+            $('.wrap').children('p').css('color','blue');
+            $('.wrap').find('li').css('color','blue');
+    });
+</script>
+</head>
+<body>
+    <section>
+        <div>
+            <ul>
+                <li>리스트태그</li>
+                <li>리스트태그</li>
+                <li>리스트태그</li>
+                <li>리스트태그</li>
+                <li>리스트태그</li>
+                <li>리스트태그</li>
+            </ul>
+        </div>
+    </section>
+    <div class="wrap">
+        <h1>1</h1>
+        <h2>2</h2>
+        <p>3</p>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+</html>
