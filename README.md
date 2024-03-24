@@ -137,4 +137,47 @@ removeAttr() | 본인의 태그속성 제거
        $('h1').click(function(){
            $(this).toggleClass('active');
        });
-```                                                                                     
+```            
+
+```javascript
+//mainbanner 
+          //1.페이지표시
+           var current=0;
+           $('.mainbanner_page .current').text(current+1);
+           $('.mainbanner_page .total').text($('.mainbanner li').length);
+        //다음 이전버튼   
+            var mbListNum =$('.mainbanner li').length;
+            $('.banner_next').click(function(){
+                $('.mainbanner li').eq(current).css('left','0').animate({left:'-100%'},400);
+                current++;
+                if(current>mbListNum-1) current=0;
+                $('.mainbanner_page .current').text(current+1);
+                $('.mainbanner li').eq(current).css('left','100%').animate({left:0},400);
+            });
+            $('.banner_prev').click(function(){
+                $('.mainbanner li').eq(current).css('left','0').animate({left:'100%'},400);
+                current--;
+                if(current < 0) current=mbListNum-1;
+                $('.mainbanner_page .current').text(current+1);
+                $('.mainbanner li').eq(current).css('left','-150%').animate({left:'0'},400);
+            });
+        //mainbanner 자동실행    
+        var auto =null;
+        function autoBanner(){
+            auto = setInterval(function(){
+                $('.banner_next').click();
+            },3000)
+        }
+        autoBanner();
+        //mainbanner 취소재생
+        $('.btn_stop').click(function(){
+            clearInterval(auto);
+            $(".banner_control").addClass('on');
+            return false;
+        })
+        $('.btn_play').click(function(){
+            autoBanner();
+            $('.banner_control').removeClass('on');
+            return false;
+        });
+```
